@@ -752,7 +752,7 @@ img {
   margin-bottom: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  line-height: 2;
+  line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
   color: var(--main-color);
@@ -761,67 +761,11 @@ img {
 .form-field-container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .form-field-container,
 .terms-field-container {
   width: 100%;
-}
-.input-container {
-  position: relative;
-}
-.input-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  fill: var(--main-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.textarea {
-  min-height: 120px;
-  resize: vertical;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.terms-field-container {
-  margin-top: 16px;
-  margin-bottom: 24px;
-}
-
-.privacy-policy-link {
-  color: var(--brand-color);
-  text-decoration: underline;
-}
-
-.modal-form-label {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  line-height: 1, 17;
-  letter-spacing: 0.04em;
-  color: var(--icons-color);
-}
-
-.modal-form-input::placeholder {
-  font-family: 'Roboto';
-  font-size: 12px;
-  line-height: 1.67;
-  letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
-}
-
-.modal-form-input {
-  width: 100%;
-  background: #fcfcfc;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  outline: none;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-field-container:nth-child(-n + 3) {
@@ -833,8 +777,77 @@ img {
   padding-left: 38px;
 }
 
+.form-field-container:nth-child(4) {
+  margin-bottom: 16px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.textarea::placeholder {
+  font-family: 'Roboto';
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.terms-field-container {
+  margin-bottom: 24px;
+}
+
+.privacy-policy-link {
+  color: var(--brand-color);
+  text-decoration: underline;
+}
+
+.modal-form-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--icons-color);
+}
+
+.modal-form-label:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.modal-form-input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(46, 47, 66, 0.2);
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal-form-input:focus {
-  border: 1px solid var(--brand-color);
+  border-color: var(--brand-color);
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--main-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-field-container:focus-within .input-icon {
@@ -847,10 +860,10 @@ img {
 
 /* Checkbox */
 
-.checkbox-label {
-  display: flex;
+/* .checkbox-label {
+  display: inline-flex;
   align-items: center;
-}
+} */
 
 .checkbox {
   appearance: none;
@@ -858,16 +871,17 @@ img {
 }
 
 .custom-checkbox {
+  display: inline-flex;
   margin-right: 8px;
-  padding: 3px 2px;
-  display: flex;
+  height: 16px;
+  width: 16px;
   justify-content: center;
   align-items: center;
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  color: #ffffff;
+  color: transparent;
 }
 
 .check-icon {
@@ -875,19 +889,19 @@ img {
   display: inline-block;
 }
 
-.checkbox:checked + .custom-checkbox {
+.checkbox:checked + .checkbox-label > .custom-checkbox {
   background-color: var(--hover-color);
-  border: 1px solid var(--hover-color);
-  color: var(--light-color);
+  border: none;
+  color: var(--white-color);
+  border-color: var(--hover-color);
 }
 
 .form-send-button {
-  /* margin-left: auto;
-  margin-right: auto; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 169px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  min-width: 169px;
   height: 56px;
 
   background-color: var(--brand-color);
